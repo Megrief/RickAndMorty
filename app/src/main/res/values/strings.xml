@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">RickAndMorty</string>
+    <string name="name">Имя:</string>
+    <string name="species">Вид:</string>
+    <string name="status">Статус:</string>
+    <string name="input_query">Введите поисковый запрос</string>
+    <string name="dimention">Измерение:</string>
+    <string name="air_date">Дата выхода:</string>
+    <string name="episode_code">Код эпизода:</string>
+</resources>
