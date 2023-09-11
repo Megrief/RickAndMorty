@@ -1,4 +1,4 @@
-package com.example.rickandmorty.ui.main.adapter;
+package com.example.rickandmorty.ui.fragments.adapters.rv;
 
 import com.example.rickandmorty.domain.entities.TypeOfData;
 

@@ -1,4 +1,4 @@
-package com.example.rickandmorty.ui.main.util;
+package com.example.rickandmorty.ui.fragments.util;
 
 import android.os.Handler;
 import android.os.Looper;

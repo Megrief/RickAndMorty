@@ -7,6 +7,7 @@ public enum TypeOfData {
 
     final String type;
     final Class<? extends Data> typeOfData;
+
     TypeOfData(
             String type,
             Class<? extends Data> typeOfData

@@ -1,6 +1,5 @@
 package com.example.rickandmorty.data.network.rick_and_morty_service;
 
-import com.example.rickandmorty.data.network.response.ApiResponse;
 import com.example.rickandmorty.data.network.response.SuccessResponse;
 
 import retrofit2.Call;

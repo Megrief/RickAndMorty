@@ -1,7 +1,5 @@
 package com.example.rickandmorty.data.network.response;
 
-import com.google.gson.annotations.SerializedName;
-
 public class ApiResponse {
     int responseCode = 0;
 

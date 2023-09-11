@@ -14,4 +14,15 @@
         <item name="android:textAppearance">@style/DataCard.Text</item>
         <item name="android:layout_marginHorizontal">6dp</item>
     </style>
+
+    <style name="DataCard.TextViewOnCardScreen">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="layout_goneMarginTop">16dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:textAppearance">@style/DataCard.Text</item>
+        <item name="android:maxLength">25</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">marquee</item>
+    </style>
 </resources>

@@ -1,7 +1,5 @@
 package com.example.rickandmorty.domain.use_cases;
 
-import android.util.Log;
-
 import com.example.rickandmorty.domain.entities.Page;
 import com.example.rickandmorty.domain.entities.TypeOfData;
 import com.example.rickandmorty.domain.repository.SearchRepository;
@@ -24,11 +22,10 @@ public class SearchUseCase {
     }
 
     public void doSearch(String name, TypeOfData type, Consumer<Page> consumer) {
-        Log.e("AAA", "In searchUseCase");
         executors.execute(() ->
-                consumer.accept(
-                        repository.search(name, type)
-                )
+            consumer.accept(
+                repository.search(name, type)
+            )
         );
     }
 }

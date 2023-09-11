@@ -1,6 +1,4 @@
-package com.example.rickandmorty.ui.main.vm;
-
-import android.util.Log;
+package com.example.rickandmorty.ui.fragments.view_models;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -12,11 +10,14 @@ import com.example.rickandmorty.domain.entities.EpisodeData;
 import com.example.rickandmorty.domain.entities.LocationData;
 import com.example.rickandmorty.domain.entities.Page;
 import com.example.rickandmorty.domain.entities.TypeOfData;
-import com.example.rickandmorty.domain.use_cases.GetPageUseCase;
 import com.example.rickandmorty.domain.use_cases.SearchUseCase;
-import com.example.rickandmorty.ui.main.adapter.DataObject;
-import com.example.rickandmorty.ui.main.util.SearchDebouncer;
-import com.example.rickandmorty.ui.main.vm.state.ScreenState;
+import com.example.rickandmorty.domain.use_cases.StoreDataUseCase;
+import com.example.rickandmorty.ui.fragments.adapters.rv.DataObject;
+import com.example.rickandmorty.ui.fragments.util.SearchDebouncer;
+import com.example.rickandmorty.ui.fragments.ui_state.Empty;
+import com.example.rickandmorty.ui.fragments.ui_state.Loading;
+import com.example.rickandmorty.ui.fragments.ui_state.ScreenState;
+import com.example.rickandmorty.ui.fragments.ui_state.ShowData;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -28,20 +29,22 @@ import javax.inject.Inject;
 import dagger.hilt.android.lifecycle.HiltViewModel;
 
 @HiltViewModel
-public class MainVM extends ViewModel {
+public class SearchFragmentVM extends ViewModel {
+
     private final SearchUseCase searchUseCase;
-    private GetPageUseCase getPageUseCase;
+    private StoreDataUseCase storeDataUseCase;
 
     @Inject
-    public MainVM(
-            SearchUseCase searchUseCase,
-            GetPageUseCase getPageUseCase
+    public SearchFragmentVM(
+        SearchUseCase searchUseCase,
+        StoreDataUseCase storeDataUseCase
     ) {
         this.searchUseCase = searchUseCase;
-        this.getPageUseCase = getPageUseCase;
+        this.storeDataUseCase = storeDataUseCase;
     }
 
-    private final MutableLiveData<ScreenState> screenState = new MutableLiveData<>(new ScreenState.Empty());
+    private final MutableLiveData<ScreenState> screenState = new MutableLiveData<>(new Empty());
+
 
     public LiveData<ScreenState> getScreenState() {
         return screenState;
@@ -65,11 +68,9 @@ public class MainVM extends ViewModel {
                         list.add(dataObject);
                     }
                     if (!list.isEmpty()) {
-                        Log.e("AAA", "list with data is not empty");
                     }
-                    screenState.postValue(new ScreenState.ShowData(
-                            list
-                    ));
+
+                    screenState.postValue(new ShowData(list));
                     break;
                 }
                 case LOCATION: {
@@ -84,9 +85,7 @@ public class MainVM extends ViewModel {
                         );
                         list.add(dataObject);
                     }
-                    screenState.postValue(new ScreenState.ShowData(
-                            list
-                    ));
+                    screenState.postValue(new ShowData(list));
                 }
                 case EPISODE: {
                     for (Data data: dataList) {
@@ -100,14 +99,13 @@ public class MainVM extends ViewModel {
                         );
                         list.add(dataObject);
                     }
-                    screenState.postValue(new ScreenState.ShowData(
-                            list
-                    ));
+                    screenState.postValue(new ShowData(list));
                     break;
                 }
             }
+
         } else {
-            screenState.postValue(new ScreenState.Empty());
+            screenState.postValue(new Empty());
         }
     };
 
@@ -121,17 +119,22 @@ public class MainVM extends ViewModel {
 
         @Override
         public void run() {
-            screenState.postValue(new ScreenState.Loading());
+            screenState.postValue(new Loading());
             searchUseCase.doSearch(name, type, consumer);
         }
     };
 
     public void search(String name, TypeOfData type) {
-        Log.e("AAA", "InSearch");
         if (!this.name.equals(name)) {
             this.name = name;
             this.type = type;
             SearchDebouncer.searchDebounce(runnable);
+        }
+    }
+
+    public void clearSearch() {
+        if (screenState.getValue() instanceof ShowData) {
+            screenState.postValue(new Empty());
         }
     }
 

@@ -1,4 +1,4 @@
-package com.example.rickandmorty.ui.main.adapter;
+package com.example.rickandmorty.ui.fragments.adapters.rv;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rickandmorty.databinding.DataCardBinding;
-import com.example.rickandmorty.ui.main.util.DataObjectDiffCallback;
-import com.example.rickandmorty.ui.main.util.OnCardClick;
+import com.example.rickandmorty.ui.fragments.util.DataObjectDiffCallback;
+import com.example.rickandmorty.ui.fragments.util.OnCardClick;
 
 import java.util.ArrayList;
 
@@ -47,9 +47,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataViewHolder> {
     public void onBindViewHolder(@NonNull DataViewHolder holder, int position) {
         DataObject data = dataList.get(position);
         holder.bind(data);
-        holder.itemView.setOnClickListener(v -> {
-            onCardClick.onClick(data.getUrl());
-        });
+        holder.itemView.setOnClickListener(v -> onCardClick.onClick(data.getUrl()));
     }
 
     @Override

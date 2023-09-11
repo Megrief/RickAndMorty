@@ -1,8 +1,8 @@
-package com.example.rickandmorty.ui.main.util;
+package com.example.rickandmorty.ui.fragments.util;
 
 import androidx.recyclerview.widget.DiffUtil;
 
-import com.example.rickandmorty.ui.main.adapter.DataObject;
+import com.example.rickandmorty.ui.fragments.adapters.rv.DataObject;
 
 import java.util.ArrayList;
 

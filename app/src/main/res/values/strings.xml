@@ -7,4 +7,5 @@
     <string name="dimention">Измерение:</string>
     <string name="air_date">Дата выхода:</string>
     <string name="episode_code">Код эпизода:</string>
+    <!-- TODO: Remove or change this placeholder text -->
 </resources>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.CurrentEntityFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="4dp" >
+
+        <!-- Groups -->
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/name_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:constraint_referenced_ids="name, name_value" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/prop1_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:constraint_referenced_ids="prop1, prop1_value" />
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="192dp"
+            android:layout_height="192dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/background"
+            android:padding="4dp"
+            android:scaleType="fitCenter"
+            tools:src="@drawable/rickbig"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/DataCard.TextViewOnCardScreen"
+            tools:text="@string/name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image"/>
+
+        <TextView
+            android:id="@+id/name_value"
+            style="@style/DataCard.TextViewOnCardScreen"
+            tools:text="Rick Sanchez"
+            app:layout_constraintBaseline_toBaselineOf="@id/name"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/prop1"
+            style="@style/DataCard.TextViewOnCardScreen"
+            tools:text="@string/status"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/prop1_value"
+            style="@style/DataCard.TextViewOnCardScreen"
+            tools:text="Alive"
+            app:layout_constraintBaseline_toBaselineOf="@id/prop1"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/prop2"
+            style="@style/DataCard.TextViewOnCardScreen"
+            tools:text="Prop1"
+            app:layout_constraintTop_toBottomOf="@id/prop1"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/prop2_value"
+            style="@style/DataCard.TextViewOnCardScreen"
+            tools:text="Prop1_value"
+            app:layout_constraintBaseline_toBaselineOf="@id/prop2"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/prop3"
+            style="@style/DataCard.TextViewOnCardScreen"
+            tools:text="@string/status"
+            app:layout_constraintTop_toBottomOf="@id/prop2"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/prop3_value"
+            style="@style/DataCard.TextViewOnCardScreen"
+            tools:text="Alive"
+            app:layout_constraintBaseline_toBaselineOf="@id/prop3"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/prop4"
+            style="@style/DataCard.TextViewOnCardScreen"
+            tools:text="Prop1"
+            app:layout_constraintTop_toBottomOf="@id/prop3"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/prop4_value"
+            style="@style/DataCard.TextViewOnCardScreen"
+            tools:text="Prop1_value"
+            app:layout_constraintBaseline_toBaselineOf="@id/prop4"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/prop5"
+            style="@style/DataCard.TextViewOnCardScreen"
+            tools:text="@string/status"
+            app:layout_constraintTop_toBottomOf="@id/prop4"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/prop5_value"
+            style="@style/DataCard.TextViewOnCardScreen"
+            tools:text="Alive"
+            app:layout_constraintBaseline_toBaselineOf="@id/prop5"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/prop6"
+            style="@style/DataCard.TextViewOnCardScreen"
+            tools:text="Prop1"
+            app:layout_constraintTop_toBottomOf="@id/prop5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/prop6_value"
+            style="@style/DataCard.TextViewOnCardScreen"
+            tools:text="Prop1_value"
+            app:layout_constraintBaseline_toBaselineOf="@id/prop6"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
