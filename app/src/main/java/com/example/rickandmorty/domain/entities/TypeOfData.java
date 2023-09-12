@@ -1,5 +1,10 @@
 package com.example.rickandmorty.domain.entities;
 
+import com.example.rickandmorty.domain.entities.data.CharacterData;
+import com.example.rickandmorty.domain.entities.data.Data;
+import com.example.rickandmorty.domain.entities.data.EpisodeData;
+import com.example.rickandmorty.domain.entities.data.LocationData;
+
 public enum TypeOfData {
     CHARACTER("character", CharacterData.class),
     LOCATION("location", LocationData.class),

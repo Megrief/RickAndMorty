@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.rickandmorty.databinding.DataCardBinding;
+import com.example.rickandmorty.databinding.CharacterCardBinding;
 import com.example.rickandmorty.ui.fragments.util.DataObjectDiffCallback;
 import com.example.rickandmorty.ui.fragments.util.OnCardClick;
 
@@ -40,7 +40,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataViewHolder> {
     public DataViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-        return new DataViewHolder(DataCardBinding.inflate(inflater, parent, false));
+        return new DataViewHolder(CharacterCardBinding.inflate(inflater, parent, false));
     }
 
     @Override

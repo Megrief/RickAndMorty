@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.rickandmorty.databinding.FragmentSearchResultsBinding;
-import com.example.rickandmorty.domain.entities.Data;
+import com.example.rickandmorty.domain.entities.data.Data;
 import com.example.rickandmorty.ui.fragments.adapters.rv.DataAdapter;
 import com.example.rickandmorty.ui.fragments.ui_state.Empty;
 import com.example.rickandmorty.ui.fragments.ui_state.Loading;

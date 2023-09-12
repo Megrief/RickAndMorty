@@ -4,10 +4,10 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.rickandmorty.domain.entities.CharacterData;
-import com.example.rickandmorty.domain.entities.Data;
-import com.example.rickandmorty.domain.entities.EpisodeData;
-import com.example.rickandmorty.domain.entities.LocationData;
+import com.example.rickandmorty.domain.entities.data.CharacterData;
+import com.example.rickandmorty.domain.entities.data.Data;
+import com.example.rickandmorty.domain.entities.data.EpisodeData;
+import com.example.rickandmorty.domain.entities.data.LocationData;
 import com.example.rickandmorty.domain.entities.Page;
 import com.example.rickandmorty.domain.entities.TypeOfData;
 import com.example.rickandmorty.domain.use_cases.SearchUseCase;
@@ -63,7 +63,8 @@ public class SearchFragmentVM extends ViewModel {
                                 item.getSpecies(),
                                 item.getStatus(),
                                 page.getTypeOfData(),
-                                item.getUrl()
+                                item.getUrl(),
+                                item.getImage()
                         );
                         list.add(dataObject);
                     }
@@ -81,7 +82,8 @@ public class SearchFragmentVM extends ViewModel {
                                 item.getType(),
                                 item.getDimension(),
                                 page.getTypeOfData(),
-                                item.getUrl()
+                                item.getUrl(),
+                                ""
                         );
                         list.add(dataObject);
                     }
@@ -95,7 +97,8 @@ public class SearchFragmentVM extends ViewModel {
                                 item.getAirDate(),
                                 item.getEpisodeCode(),
                                 page.getTypeOfData(),
-                                item.getUrl()
+                                item.getUrl(),
+                                ""
                         );
                         list.add(dataObject);
                     }

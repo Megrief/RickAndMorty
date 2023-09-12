@@ -1,14 +1,16 @@
 package com.example.rickandmorty.ui.fragments.adapters.rv;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.rickandmorty.R;
-import com.example.rickandmorty.databinding.DataCardBinding;
+import com.example.rickandmorty.databinding.CharacterCardBinding;
 
 public class DataViewHolder extends RecyclerView.ViewHolder {
-    DataCardBinding binding;
+    CharacterCardBinding binding;
 
-    DataViewHolder(DataCardBinding binding) {
+    DataViewHolder(@NonNull CharacterCardBinding binding) {
         super(binding.getRoot());
         this.binding = binding;
     }
@@ -22,6 +24,7 @@ public class DataViewHolder extends RecyclerView.ViewHolder {
             case CHARACTER: {
                 binding.firstProp.setText(R.string.species);
                 binding.secondProp.setText(R.string.status);
+                Glide.with(binding.getRoot()).load(data.getImageUrl()).into(binding.image);
                 break;
             }
             case LOCATION: {

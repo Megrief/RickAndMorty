@@ -2,7 +2,7 @@ package com.example.rickandmorty.data.network.response;
 
 import android.util.Log;
 
-import com.example.rickandmorty.domain.entities.CharacterData;
+import com.example.rickandmorty.domain.entities.data.CharacterData;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;

@@ -4,6 +4,7 @@ import com.example.rickandmorty.domain.entities.TypeOfData;
 
 public class DataObject {
     private final String name;
+    private final String imageUrl;
     private final String firstPropertyValue;
     private final String secondPropertyValue;
 
@@ -15,13 +16,15 @@ public class DataObject {
             String firstPropertyValue,
             String secondPropertyValue,
             TypeOfData type,
-            String url
+            String url,
+            String imageUrl
     ) {
         this.name = name;
         this.firstPropertyValue = firstPropertyValue;
         this.secondPropertyValue = secondPropertyValue;
         this.type = type;
         this.url = url;
+        this.imageUrl = imageUrl;
     }
 
     public String getName() {
@@ -30,7 +33,9 @@ public class DataObject {
     public TypeOfData getType() {
         return type;
     }
-
+    public String getImageUrl() {
+        return imageUrl;
+    }
     public String getFirstPropertyValue() {
         return firstPropertyValue;
     }

@@ -1,4 +1,4 @@
-package com.example.rickandmorty.domain.entities;
+package com.example.rickandmorty.domain.entities.data;
 
 import com.google.gson.annotations.SerializedName;
 

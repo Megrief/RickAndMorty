@@ -1,5 +1,7 @@
 package com.example.rickandmorty.domain.entities;
 
+import com.example.rickandmorty.domain.entities.data.Data;
+
 import java.util.ArrayList;
 
 public class Page {

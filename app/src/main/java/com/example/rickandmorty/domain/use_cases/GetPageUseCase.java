@@ -1,6 +1,6 @@
 package com.example.rickandmorty.domain.use_cases;
 
-import com.example.rickandmorty.domain.entities.Data;
+import com.example.rickandmorty.domain.entities.data.Data;
 import com.example.rickandmorty.domain.entities.Page;
 import com.example.rickandmorty.domain.repository.SearchRepository;
 
