@@ -27,7 +27,7 @@ public class RetrofitNetworkClient implements NetworkClient {
     @NonNull
     @Override
     public ApiResponse doRequest(TypeOfData type, String name) {
-        Response<? extends ApiResponse> response = null;
+        Response<? extends ApiResponse> response;
         try {
             switch (type) {
                 case CHARACTER: {
@@ -36,12 +36,15 @@ public class RetrofitNetworkClient implements NetworkClient {
                 }
                 case LOCATION: {
                     response = apiService.searchLocation(name).execute();
+                    Log.e("AAA", "success");
                     break;
                 }
                 case EPISODE: {
                     response = apiService.searchEpisode(name).execute();
                     break;
                 }
+                default:
+                    response = null;
             }
 
         } catch (IOException e) {

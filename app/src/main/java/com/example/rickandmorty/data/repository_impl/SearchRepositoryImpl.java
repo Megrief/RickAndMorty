@@ -31,7 +31,11 @@ public class SearchRepositoryImpl implements SearchRepository {
     public Page search(String name, TypeOfData type) {
         Log.e("AAA", "In repository");
         ApiResponse response = networkClient.doRequest(type, name);
-
+        if (response != null) {
+            Log.e("AAA", "Response not null");
+        } else {
+            Log.e("AAA", "Response is null");
+        }
         switch (response.getResponseCode()) {
             case ApiResponse.SUCCESS: {
                 Log.e("AAA", "Response code is success");

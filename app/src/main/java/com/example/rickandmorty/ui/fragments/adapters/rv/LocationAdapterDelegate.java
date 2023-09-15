@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rickandmorty.R;
 import com.example.rickandmorty.databinding.TextCardBinding;
-import com.example.rickandmorty.domain.entities.data.CharacterData;
 import com.example.rickandmorty.domain.entities.data.Data;
 import com.example.rickandmorty.domain.entities.data.LocationData;
 import com.example.rickandmorty.ui.fragments.util.OnCardClick;
@@ -27,7 +26,7 @@ public class LocationAdapterDelegate extends AbsListItemAdapterDelegate<Location
     }
     @Override
     protected boolean isForViewType(@NonNull Data item, @NonNull List<Data> items, int position) {
-        return item instanceof CharacterData;
+        return item instanceof LocationData;
     }
 
     @NonNull

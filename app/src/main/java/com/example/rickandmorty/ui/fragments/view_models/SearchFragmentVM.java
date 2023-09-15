@@ -50,7 +50,7 @@ public class SearchFragmentVM extends ViewModel {
     private String name = "";
 
     @NotNull
-    private TypeOfData type = TypeOfData.CHARACTER;
+    private TypeOfData type = TypeOfData.LOCATION;
 
     private final Consumer<Page> consumer = page -> {
         if (page != null) {
