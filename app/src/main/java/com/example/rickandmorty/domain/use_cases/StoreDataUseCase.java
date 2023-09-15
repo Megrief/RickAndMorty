@@ -4,13 +4,13 @@ import com.example.rickandmorty.domain.repository.StorageRepo;
 
 import javax.inject.Inject;
 
-public class StoreDataUseCase {
+public final class StoreDataUseCase {
 
     StorageRepo repository;
 
     @Inject
     public StoreDataUseCase(
-            StorageRepo respository
+            StorageRepo repository
     ) {
         this.repository = repository;
     }

@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class EpisodeResponse extends ApiResponse {
+public final class EpisodeResponse extends ApiResponse {
     @SerializedName("info")
     Info info;
     @SerializedName("results")

@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 import javax.inject.Inject;
 
-public class SearchRepositoryImpl implements SearchRepository {
+public final class SearchRepositoryImpl implements SearchRepository {
 
     private final NetworkClient networkClient;
 
@@ -32,38 +32,38 @@ public class SearchRepositoryImpl implements SearchRepository {
         Log.e("AAA", "In repository");
         ApiResponse response = networkClient.doRequest(type, name);
         if (response != null) {
-            Log.e("AAA", "Response not null");
-        } else {
-            Log.e("AAA", "Response is null");
-        }
-        switch (response.getResponseCode()) {
-            case ApiResponse.SUCCESS: {
-                Log.e("AAA", "Response code is success");
-                try {
-                    return onSuccess(response, type);
-                } catch (Exception e) {
-                    Log.e("AAA", "Can't cast response");
+            switch (response.getResponseCode()) {
+                case ApiResponse.SUCCESS: {
+                    Log.e("AAA", "Response code is success");
+                    try {
+                        return onSuccess(response, type);
+                    } catch (Exception e) {
+                        Log.e("AAA", "Can't cast response");
 
-                    return new Page(
-                            null,
-                            null,
-                            new ArrayList<>()
-                    );
+                        return new Page(
+                                null,
+                                null,
+                                new ArrayList<>()
+                        );
+                    }
+                }
+                case ApiResponse.FAILURE: {
+                    Log.e("AAA", "Response code is failure");
+                    return null;
+                }
+                case ApiResponse.NO_INTERNET: {
+                    Log.e("AAA", "Internet connection error");
+                    return null;
+                }
+                default: {
+                    Log.e("AAA", "Unknown response code");
+                    return null;
                 }
             }
-            case ApiResponse.FAILURE: {
-                Log.e("AAA", "Response code is failure");
-                return null;
-            }
-            case ApiResponse.NO_INTERNET: {
-                Log.e("AAA", "Internet connection error");
-                return null;
-            }
-            default: {
-                Log.e("AAA", "Unknown response code");
-                return null;
-            }
+        } else {
+            return null;
         }
+
     }
 
     private Page onSuccess(ApiResponse response, TypeOfData type) {

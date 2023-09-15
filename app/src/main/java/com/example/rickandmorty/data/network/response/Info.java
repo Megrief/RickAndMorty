@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Info {
+public final class Info {
     @SerializedName("count")
     int count;
     @SerializedName("pages")

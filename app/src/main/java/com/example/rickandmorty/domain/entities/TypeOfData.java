@@ -10,19 +10,19 @@ public enum TypeOfData {
     LOCATION("location", LocationData.class),
     EPISODE("episode", EpisodeData.class);
 
-    final String type;
+    final String value;
     final Class<? extends Data> typeOfData;
 
     TypeOfData(
             String type,
             Class<? extends Data> typeOfData
     ) {
-        this.type = type;
+        this.value = type;
         this.typeOfData = typeOfData;
     }
 
-    public String getType() {
-        return type;
+    public String getValue() {
+        return value;
     }
 
     public Class<? extends Data> getTypeOfData() {

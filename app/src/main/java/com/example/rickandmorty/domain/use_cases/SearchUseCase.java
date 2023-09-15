@@ -10,7 +10,7 @@ import java.util.function.Consumer;
 
 import javax.inject.Inject;
 
-public class SearchUseCase {
+public final class SearchUseCase {
     private final SearchRepository repository;
     private final ExecutorService executors = Executors.newCachedThreadPool();
 

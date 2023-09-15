@@ -4,7 +4,7 @@ import com.example.rickandmorty.domain.entities.data.Data;
 
 import java.util.List;
 
-public class Page {
+public final class Page {
     final String previousUrl;
     final String nextUrl;
     final List<? extends Data> data;

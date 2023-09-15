@@ -3,7 +3,7 @@ package com.example.rickandmorty.domain.entities.data;
 import com.example.rickandmorty.domain.entities.TypeOfData;
 import com.google.gson.annotations.SerializedName;
 
-public class LocationData extends Data {
+public final class LocationData extends Data {
 
     @SerializedName("name")
     String name;

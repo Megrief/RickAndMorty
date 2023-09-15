@@ -7,7 +7,7 @@ import com.google.gson.Gson;
 
 import javax.inject.Inject;
 
-public class StorageRepoSP implements StorageRepo {
+public final class StorageRepoSP implements StorageRepo {
 
     Gson gson;
     SharedPreferences sharedPrefs;

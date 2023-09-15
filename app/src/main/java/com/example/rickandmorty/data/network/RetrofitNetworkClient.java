@@ -14,7 +14,7 @@ import javax.inject.Inject;
 
 import retrofit2.Response;
 
-public class RetrofitNetworkClient implements NetworkClient {
+public final class RetrofitNetworkClient implements NetworkClient {
     RickAndMortyService apiService;
 
     @Inject

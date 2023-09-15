@@ -39,24 +39,33 @@
     <TextView
         android:id="@+id/name_value"
         style="@style/DataCard.TextView"
+        android:layout_width="0dp"
+        android:textAlignment="viewEnd"
         tools:text="Рик"
+        app:layout_constraintStart_toEndOf="@id/name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/first_prop_value" />
+        app:layout_constraintBaseline_toBaselineOf="@id/name" />
 
     <TextView
         android:id="@+id/first_prop_value"
         style="@style/DataCard.TextView"
+        android:layout_width="0dp"
+        android:textAlignment="viewEnd"
         tools:text="Человек"
+        app:layout_constraintStart_toEndOf="@id/first_prop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/name_value"
-        app:layout_constraintBottom_toTopOf="@id/second_prop_value" />
+        app:layout_constraintBaseline_toBaselineOf="@id/first_prop" />
 
     <TextView
         android:id="@+id/second_prop_value"
         style="@style/DataCard.TextView"
+        android:layout_width="0dp"
+        android:textAlignment="viewEnd"
         tools:text="Жив"
+        app:layout_constraintStart_toEndOf="@id/second_prop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/first_prop_value"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBaseline_toBaselineOf="@id/second_prop" />
 </androidx.constraintlayout.widget.ConstraintLayout>

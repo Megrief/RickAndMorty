@@ -10,7 +10,7 @@ import java.util.function.Consumer;
 
 import javax.inject.Inject;
 
-public class GetPageUseCase {
+public final class GetPageUseCase {
     SearchRepository repository;
 
     @Inject

@@ -14,6 +14,8 @@ public class ApiResponse {
         this.responseCode = responseCode;
         return this;
     }
+
+
     public int getResponseCode() {
         return responseCode;
     }

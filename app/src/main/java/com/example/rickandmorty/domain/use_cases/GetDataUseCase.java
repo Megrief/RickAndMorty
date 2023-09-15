@@ -8,7 +8,7 @@ import java.util.function.Consumer;
 
 import javax.inject.Inject;
 
-public class GetDataUseCase {
+public final class GetDataUseCase {
 
     StorageRepo repository;
 
