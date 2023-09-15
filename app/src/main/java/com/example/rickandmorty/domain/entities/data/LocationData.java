@@ -1,10 +1,10 @@
 package com.example.rickandmorty.domain.entities.data;
 
+import com.example.rickandmorty.domain.entities.TypeOfData;
 import com.google.gson.annotations.SerializedName;
 
 public class LocationData extends Data {
-    @SerializedName("id")
-    int id;
+
     @SerializedName("name")
     String name;
     @SerializedName("type")
@@ -27,7 +27,7 @@ public class LocationData extends Data {
         String url,
         String created
     ) {
-        this.id = id;
+        super(TypeOfData.LOCATION, id);
         this.name = name;
         this.type = type;
         this.dimension = dimension;
@@ -36,9 +36,6 @@ public class LocationData extends Data {
         this.created = created;
     }
 
-    public int getId() {
-        return id;
-    }
     public String getName() {
         return name;
     }

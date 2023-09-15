@@ -6,18 +6,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.rickandmorty.databinding.FragmentSearchResultsBinding;
 import com.example.rickandmorty.domain.entities.data.Data;
-import com.example.rickandmorty.ui.fragments.adapters.rv.DataAdapter;
+import com.example.rickandmorty.ui.fragments.adapters.rv.DataDiffAdapter;
 import com.example.rickandmorty.ui.fragments.ui_state.Empty;
 import com.example.rickandmorty.ui.fragments.ui_state.Loading;
 import com.example.rickandmorty.ui.fragments.ui_state.ShowData;
 import com.example.rickandmorty.ui.fragments.view_models.SearchFragmentVM;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
@@ -31,8 +32,7 @@ public class SearchResultsFragment extends Fragment {
 
     SearchFragmentVM vm;
     FragmentSearchResultsBinding binding;
-    DataAdapter adapter;
-    ArrayList<? extends Data> data;
+    DataDiffAdapter adapter;
 
     public static SearchResultsFragment newInstance() {
         SearchResultsFragment fragment = new SearchResultsFragment();
@@ -48,7 +48,7 @@ public class SearchResultsFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentSearchResultsBinding.inflate(inflater, container, false);
 
@@ -63,7 +63,7 @@ public class SearchResultsFragment extends Fragment {
             }
         });
 
-        adapter = new DataAdapter(v -> { });
+        adapter = new DataDiffAdapter();
         binding.dataListRv.setAdapter(adapter);
 
         return binding.getRoot();
@@ -83,6 +83,6 @@ public class SearchResultsFragment extends Fragment {
     private void onResult(ShowData screenState) {
         binding.loadingPb.setVisibility(View.GONE);
         binding.dataListRv.setVisibility(View.VISIBLE);
-        adapter.setDataList(screenState.getData());
+        adapter.setItems(screenState.getData());
     }
 }

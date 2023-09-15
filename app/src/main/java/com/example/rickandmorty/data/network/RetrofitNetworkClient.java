@@ -2,8 +2,11 @@ package com.example.rickandmorty.data.network;
 
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
 import com.example.rickandmorty.data.network.response.ApiResponse;
 import com.example.rickandmorty.data.network.rick_and_morty_service.RickAndMortyService;
+import com.example.rickandmorty.domain.entities.TypeOfData;
 
 import java.io.IOException;
 
@@ -13,26 +16,37 @@ import retrofit2.Response;
 
 public class RetrofitNetworkClient implements NetworkClient {
     RickAndMortyService apiService;
+
     @Inject
     public RetrofitNetworkClient(
         RickAndMortyService apiService
     ) {
         this.apiService = apiService;
     }
+
+    @NonNull
     @Override
-    public ApiResponse doRequest(String type, String name) {
-
+    public ApiResponse doRequest(TypeOfData type, String name) {
         Response<? extends ApiResponse> response = null;
-
-
-        if (apiService != null) {
-            Log.e("AAA", "ApiService not null");
-            try {
-                response = apiService.search(type, name).execute();
-
-            } catch (IOException e) {
-                Log.e("No answer", "Server not response");
+        try {
+            switch (type) {
+                case CHARACTER: {
+                    response = apiService.searchCharacter(name).execute();
+                    break;
+                }
+                case LOCATION: {
+                    response = apiService.searchLocation(name).execute();
+                    break;
+                }
+                case EPISODE: {
+                    response = apiService.searchEpisode(name).execute();
+                    break;
+                }
             }
+
+        } catch (IOException e) {
+            Log.e("No answer", "Server is not responding");
+            return new ApiResponse().setResponseCode(ApiResponse.NO_INTERNET);
         }
 
         if (response != null) {
@@ -43,7 +57,7 @@ public class RetrofitNetworkClient implements NetworkClient {
 
 
         Log.e("AAA", "Response is Null");
-        return null;
+        return new ApiResponse().setResponseCode(ApiResponse.FAILURE);
     }
 
 //    @Override

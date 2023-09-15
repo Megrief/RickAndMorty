@@ -2,25 +2,22 @@ package com.example.rickandmorty.domain.entities;
 
 import com.example.rickandmorty.domain.entities.data.Data;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Page {
     final String previousUrl;
     final String nextUrl;
-    final ArrayList<? extends Data> data;
-    final TypeOfData type;
+    final List<? extends Data> data;
 
 
     public Page(
             String previousUrl,
             String nextUrl,
-            ArrayList<? extends Data> data,
-            TypeOfData type
+            List<? extends Data> data
     ) {
         this.previousUrl = previousUrl;
         this.nextUrl = nextUrl;
         this.data = data;
-        this.type = type;
     }
 
     public String getPreviousUrl() {
@@ -31,11 +28,8 @@ public class Page {
         return nextUrl;
     }
 
-    public ArrayList<? extends Data> getData() {
+    public List<? extends Data> getData() {
         return data;
     }
 
-    public TypeOfData getTypeOfData() {
-        return type;
-    }
 }

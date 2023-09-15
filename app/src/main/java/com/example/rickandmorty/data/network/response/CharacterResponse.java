@@ -1,30 +1,25 @@
 package com.example.rickandmorty.data.network.response;
 
-import android.util.Log;
-
 import com.example.rickandmorty.domain.entities.data.CharacterData;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class SuccessResponse extends ApiResponse {
+public class CharacterResponse extends ApiResponse {
 
     @SerializedName("info")
     Info info;
     @SerializedName("results")
-    ArrayList<CharacterData> results;
+    List<CharacterData> results;
 
-    public SuccessResponse(
+    public CharacterResponse(
             Info info,
-           ArrayList<CharacterData> results
+            List<CharacterData> results
     ) {
         this.info = info;
-        Log.e("AAA", "Info serialized successfully");
         this.results = results;
-        Log.e("AAA", "Results serialized successfully");
     }
-
-    public ArrayList<CharacterData> getResults() {
+    public List<CharacterData> getResults() {
         return results;
     }
 

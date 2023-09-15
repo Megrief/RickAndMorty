@@ -30,8 +30,8 @@ public class DataModule {
 
     @Provides
     @Singleton
-    public SearchRepository provideSearchRepository(NetworkClient networkClient, Gson gson) {
-        return new SearchRepositoryImpl(networkClient, gson);
+    public SearchRepository provideSearchRepository(NetworkClient networkClient) {
+        return new SearchRepositoryImpl(networkClient);
     }
 
     @Provides

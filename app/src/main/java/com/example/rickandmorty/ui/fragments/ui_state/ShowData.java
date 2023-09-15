@@ -1,25 +1,21 @@
 package com.example.rickandmorty.ui.fragments.ui_state;
 
-import com.example.rickandmorty.ui.fragments.adapters.rv.DataObject;
+import com.example.rickandmorty.domain.entities.data.Data;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ShowData implements ScreenState {
-    ArrayList<DataObject> data;
+    final List<Data> data = new ArrayList<>();
 
     public ShowData(
-            ArrayList<DataObject> data
+            List<? extends Data> data
     ) {
-        this.data = data;
+        this.data.addAll(data);
     }
 
+    public List<Data> getData() {
 
-    public void setContent(ArrayList<DataObject> newData) {
-        data.clear();
-        data.addAll(newData);
-    }
-
-    public ArrayList<DataObject> getData() {
         return data;
     }
 

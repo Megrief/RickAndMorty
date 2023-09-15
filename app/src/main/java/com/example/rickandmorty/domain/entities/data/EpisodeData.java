@@ -1,10 +1,10 @@
 package com.example.rickandmorty.domain.entities.data;
 
+import com.example.rickandmorty.domain.entities.TypeOfData;
 import com.google.gson.annotations.SerializedName;
 
 public class EpisodeData extends Data {
-    @SerializedName("id")
-    int id;
+
     @SerializedName("name")
     String name;
     @SerializedName("air_date")
@@ -27,7 +27,7 @@ public class EpisodeData extends Data {
         String url,
         String postingDate
     ) {
-        this.id = id;
+        super(TypeOfData.EPISODE, id);
         this.name = name;
         this.airDate = airDate;
         this.episodeCode = episodeCode;
@@ -36,9 +36,6 @@ public class EpisodeData extends Data {
         this.postingDate = postingDate;
     }
 
-    public int getId() {
-        return id;
-    }
 
     public String getName() {
         return name;
